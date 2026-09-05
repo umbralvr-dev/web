@@ -20,6 +20,10 @@
 .booking-topbar .container{
   display:flex; align-items:center; justify-content:space-between;
 }
+.booking-topbar .logo-img img{
+  height:24px;
+  width:auto;
+}
 .booking-back{
   display:flex; align-items:center; gap:8px;
   font-family:var(--font-head); font-weight:600; font-size:0.95rem;

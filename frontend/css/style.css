@@ -299,6 +299,23 @@ header {
     color: var(--cyan);
 }
 
+/* Logo como imagen (en vez de texto) — la regla que faltaba.
+   Sin esto, la imagen se muestra a su tamaño natural (gigante). */
+.logo-img {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img::before {
+    display: none;
+}
+
+.logo-img img {
+    height: 28px;
+    width: auto;
+    display: block;
+}
+
 nav ul {
     display: flex;
     gap: 34px;

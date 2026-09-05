@@ -20,10 +20,6 @@
 .booking-topbar .container{
   display:flex; align-items:center; justify-content:space-between;
 }
-.booking-topbar .logo-img img{
-  height:24px;
-  width:auto;
-}
 .booking-back{
   display:flex; align-items:center; gap:8px;
   font-family:var(--font-head); font-weight:600; font-size:0.95rem;
@@ -104,6 +100,7 @@
   overflow:hidden;
   aspect-ratio:3/4;
   transition:border-color 0.25s, transform 0.25s;
+  -webkit-tap-highlight-color:transparent;
 }
 .bk-game-card:hover{transform:translateY(-4px); border-color:var(--cyan);}
 .bk-game-card.selected{
@@ -182,6 +179,8 @@
   border:1.5px solid var(--border); background:var(--panel);
   font-family:var(--font-mono); font-weight:700; font-size:0.92rem;
   color:var(--text); transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
+  user-select:none; -webkit-user-select:none;
 }
 .bk-slot:hover:not(.taken){border-color:var(--cyan); color:var(--cyan);}
 .bk-slot.selected{
@@ -215,6 +214,7 @@
   font-size:1.6rem; font-family:var(--font-mono); cursor:pointer;
   display:flex; align-items:center; justify-content:center;
   transition:all 0.2s;
+  -webkit-tap-highlight-color:transparent;
 }
 .bk-stepper-btn:hover:not(:disabled){background:rgba(0,229,255,0.12);}
 .bk-stepper-btn:disabled{opacity:0.3; cursor:not-allowed;}

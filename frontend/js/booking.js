@@ -3,8 +3,8 @@
    Habla con la API definida en API_BASE. Cambia esa constante
    por la URL real de tu backend cuando lo despliegues.
    =========================================================== */
-
-const API_BASE = window.UMBRAL_API_BASE || 'http://localhost:4000/api';
+/* URL BACKEND */
+const API_BASE = window.UMBRAL_API_BASE || 'http://https://web-production-6f38d.up.railway.app/api';
 
 const state = {
   step: 1,

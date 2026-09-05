@@ -4,7 +4,7 @@
    por la URL real de tu backend cuando lo despliegues.
    =========================================================== */
 /* URL BACKEND */
-const API_BASE = window.UMBRAL_API_BASE || 'http://https://web-production-6f38d.up.railway.app/api';
+const API_BASE = window.UMBRAL_API_BASE || 'https://web-production-6f38d.up.railway.app/api';
 
 const state = {
   step: 1,

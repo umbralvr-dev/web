@@ -1,7 +1,7 @@
 const express = require('express');
 const db = require('../db');
 const cfg = require('../config');
-const { generateDaySlots, isDateValid } = require('../utils/slots');
+const { generateDaySlots, isDateValid, getChileNow } = require('../utils/slots');
 const { releaseExpiredBookings } = require('../utils/cleanup');
 
 const router = express.Router();
@@ -30,13 +30,14 @@ router.get('/', (req, res) => {
   );
 
   const allSlots = generateDaySlots();
-  const now = new Date();
-  const isToday = date === now.toISOString().slice(0, 10);
-  const nowMinutes = now.getHours() * 60 + now.getMinutes();
+  // "Ahora" siempre en hora de Chile — el servidor puede correr en UTC
+  // (como Railway) y eso NO debe afectar qué horarios se ven como pasados.
+  const { dateStr: todayChile, minutes: nowMinutesChile } = getChileNow();
+  const isToday = date === todayChile;
 
   const slots = allSlots.map((time) => {
     const [h, m] = time.split(':').map(Number);
-    const isPast = isToday && h * 60 + m <= nowMinutes;
+    const isPast = isToday && h * 60 + m <= nowMinutesChile;
     return {
       time,
       available: !taken.has(time) && !isPast

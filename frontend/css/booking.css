@@ -1,0 +1,338 @@
+/* ===========================================================
+   Umbral VR — Estilos del sistema de reservas
+   Extiende css/style.css (mismos tokens: --bg, --cyan, --magenta, etc.)
+   =========================================================== */
+
+.booking-page{
+  min-height:100vh;
+  padding:120px 0 80px;
+}
+
+/* ---------- Header simple de la página de reservas ---------- */
+.booking-topbar{
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  background:rgba(7,6,13,0.85);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid var(--border);
+  height:76px;
+  display:flex; align-items:center;
+}
+.booking-topbar .container{
+  display:flex; align-items:center; justify-content:space-between;
+}
+.booking-back{
+  display:flex; align-items:center; gap:8px;
+  font-family:var(--font-head); font-weight:600; font-size:0.95rem;
+  color:var(--text-dim);
+}
+.booking-back:hover{color:var(--cyan);}
+.booking-back svg{width:18px;height:18px;}
+
+/* ---------- Stepper ---------- */
+.stepper{
+  display:flex; align-items:center; justify-content:center;
+  gap:0; margin-bottom:56px;
+  max-width:640px; margin-left:auto; margin-right:auto;
+}
+.stepper .step{
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  flex:1; position:relative;
+}
+.stepper .step-circle{
+  width:38px; height:38px; border-radius:50%;
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--font-mono); font-weight:700; font-size:0.95rem;
+  border:1.5px solid var(--border);
+  background:var(--panel);
+  color:var(--text-dim);
+  transition:all 0.3s;
+  z-index:2;
+}
+.stepper .step-label{
+  font-family:var(--font-mono); font-size:0.68rem;
+  letter-spacing:0.08em; text-transform:uppercase;
+  color:var(--text-dim);
+  text-align:center;
+}
+.stepper .step-line{
+  position:absolute; top:19px; left:50%; width:100%; height:1.5px;
+  background:var(--border); z-index:1;
+}
+.stepper .step:last-child .step-line{display:none;}
+.stepper .step.active .step-circle{
+  border-color:var(--cyan); color:var(--cyan);
+  box-shadow:0 0 14px rgba(0,229,255,0.4);
+}
+.stepper .step.active .step-label{color:var(--text);}
+.stepper .step.done .step-circle{
+  background:var(--cyan); border-color:var(--cyan); color:var(--bg);
+}
+.stepper .step.done .step-line{background:var(--cyan);}
+
+@media (max-width:640px){
+  .stepper .step-label{font-size:0.58rem;}
+  .stepper .step-circle{width:32px;height:32px;font-size:0.82rem;}
+  .stepper .step-line{top:16px;}
+}
+
+/* ---------- Panel general de cada paso ---------- */
+.booking-panel{display:none;}
+.booking-panel.active{display:block; animation:fadeUp 0.4s ease;}
+@keyframes fadeUp{from{opacity:0; transform:translateY(14px);} to{opacity:1; transform:translateY(0);}}
+
+.panel-head{text-align:center; max-width:560px; margin:0 auto 40px;}
+.panel-head .section-eyebrow{display:block; margin-bottom:10px;}
+.panel-head h2{
+  font-family:var(--font-display); font-weight:700;
+  font-size:clamp(1.6rem, 3.4vw, 2.3rem);
+}
+.panel-head p{color:var(--text-dim); margin-top:10px; font-size:0.98rem;}
+
+/* ---------- Paso 1: selección de juego ---------- */
+.bk-games-grid{
+  display:grid; grid-template-columns:repeat(3, 1fr); gap:18px;
+  max-width:920px; margin:0 auto;
+}
+.bk-game-card{
+  position:relative; cursor:pointer;
+  border:1.5px solid var(--border);
+  background:var(--panel);
+  overflow:hidden;
+  aspect-ratio:3/4;
+  transition:border-color 0.25s, transform 0.25s;
+}
+.bk-game-card:hover{transform:translateY(-4px); border-color:var(--cyan);}
+.bk-game-card.selected{
+  border-color:var(--cyan);
+  box-shadow:0 0 0 3px rgba(0,229,255,0.18), 0 0 24px rgba(0,229,255,0.3);
+}
+.bk-game-card img{
+  position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  opacity:0.85; transition:opacity 0.25s, transform 0.4s;
+}
+.bk-game-card:hover img{transform:scale(1.05);}
+.bk-game-card::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(180deg, transparent 30%, rgba(2,1,3,0.95) 100%);
+}
+.bk-game-info{
+  position:absolute; left:0; right:0; bottom:0; z-index:2;
+  padding:16px;
+}
+.bk-game-tag{
+  font-family:var(--font-mono); font-size:0.6rem; letter-spacing:0.1em;
+  color:var(--cyan); display:block; margin-bottom:6px;
+}
+.bk-game-info h3{
+  font-family:var(--font-head); font-weight:700; font-size:1.05rem;
+  color:var(--text);
+}
+.bk-game-featured-badge{
+  position:absolute; top:10px; right:10px; z-index:3;
+  font-family:var(--font-mono); font-size:0.58rem; letter-spacing:0.08em;
+  background:var(--magenta); color:#fff; padding:4px 8px;
+}
+.bk-check{
+  position:absolute; top:10px; left:10px; z-index:3;
+  width:24px; height:24px; border-radius:50%;
+  border:1.5px solid var(--border); background:rgba(7,6,13,0.7);
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s;
+}
+.bk-game-card.selected .bk-check{
+  background:var(--cyan); border-color:var(--cyan);
+}
+.bk-check svg{width:13px;height:13px; color:var(--bg); opacity:0; transition:opacity 0.2s;}
+.bk-game-card.selected .bk-check svg{opacity:1;}
+
+@media (max-width:760px){
+  .bk-games-grid{grid-template-columns:repeat(2, 1fr);}
+}
+@media (max-width:460px){
+  .bk-games-grid{grid-template-columns:1fr 1fr; gap:12px;}
+}
+
+/* ---------- Paso 2: fecha y horario ---------- */
+.bk-date-row{
+  max-width:420px; margin:0 auto 36px;
+}
+.bk-date-row label{
+  display:block; font-family:var(--font-mono); font-size:0.75rem;
+  letter-spacing:0.08em; color:var(--text-dim); margin-bottom:10px;
+  text-transform:uppercase;
+}
+.bk-date-input{
+  width:100%; padding:14px 16px;
+  background:var(--panel); border:1.5px solid var(--border);
+  color:var(--text); font-family:var(--font-head); font-size:1.05rem; font-weight:600;
+  color-scheme:dark;
+}
+.bk-date-input:focus{outline:none; border-color:var(--cyan);}
+
+.bk-slots-grid{
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:12px;
+  max-width:760px; margin:0 auto;
+}
+.bk-slot{
+  padding:14px 8px; text-align:center; cursor:pointer;
+  border:1.5px solid var(--border); background:var(--panel);
+  font-family:var(--font-mono); font-weight:700; font-size:0.92rem;
+  color:var(--text); transition:all 0.2s;
+}
+.bk-slot:hover:not(.taken){border-color:var(--cyan); color:var(--cyan);}
+.bk-slot.selected{
+  background:var(--cyan); border-color:var(--cyan); color:var(--bg);
+  box-shadow:0 0 16px rgba(0,229,255,0.5);
+}
+.bk-slot.taken{
+  opacity:0.3; cursor:not-allowed; text-decoration:line-through;
+}
+.bk-slots-empty{
+  text-align:center; color:var(--text-dim); font-family:var(--font-mono);
+  font-size:0.9rem; padding:30px 0;
+}
+@media (max-width:640px){
+  .bk-slots-grid{grid-template-columns:repeat(3, 1fr);}
+}
+
+/* ---------- Paso 3: jugadores ---------- */
+.bk-players-box{
+  max-width:420px; margin:0 auto;
+  background:var(--panel); border:1.5px solid var(--border);
+  padding:40px 30px; text-align:center;
+}
+.bk-stepper-control{
+  display:flex; align-items:center; justify-content:center; gap:26px;
+  margin:24px 0 10px;
+}
+.bk-stepper-btn{
+  width:52px; height:52px; border-radius:50%;
+  border:1.5px solid var(--cyan); background:transparent; color:var(--cyan);
+  font-size:1.6rem; font-family:var(--font-mono); cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s;
+}
+.bk-stepper-btn:hover:not(:disabled){background:rgba(0,229,255,0.12);}
+.bk-stepper-btn:disabled{opacity:0.3; cursor:not-allowed;}
+.bk-players-count{
+  font-family:var(--font-display); font-weight:900; font-size:3.4rem;
+  color:var(--text); min-width:70px;
+  text-shadow:0 0 20px rgba(0,229,255,0.35);
+}
+.bk-players-hint{
+  font-family:var(--font-mono); font-size:0.78rem; color:var(--text-dim);
+  margin-top:14px;
+}
+.bk-players-price{
+  margin-top:26px; padding-top:22px; border-top:1px solid rgba(255,255,255,0.08);
+  font-family:var(--font-mono); font-size:0.85rem; color:var(--text-dim);
+}
+.bk-players-price strong{
+  display:block; font-family:var(--font-display); font-size:1.7rem;
+  color:var(--cyan); margin-top:6px;
+}
+
+/* ---------- Paso 4: pago ---------- */
+.bk-payment-grid{
+  display:grid; grid-template-columns:1fr 1fr; gap:40px;
+  max-width:880px; margin:0 auto; align-items:start;
+}
+.bk-form-group{margin-bottom:18px;}
+.bk-form-group label{
+  display:block; font-family:var(--font-mono); font-size:0.72rem;
+  letter-spacing:0.06em; color:var(--text-dim); margin-bottom:8px;
+  text-transform:uppercase;
+}
+.bk-form-group input{
+  width:100%; padding:13px 14px;
+  background:var(--panel); border:1.5px solid var(--border);
+  color:var(--text); font-family:var(--font-body); font-size:0.98rem;
+}
+.bk-form-group input:focus{outline:none; border-color:var(--cyan);}
+.bk-form-error{
+  color:var(--magenta); font-family:var(--font-mono); font-size:0.72rem;
+  margin-top:6px; display:none;
+}
+.bk-form-group.invalid input{border-color:var(--magenta);}
+.bk-form-group.invalid .bk-form-error{display:block;}
+
+.bk-summary{
+  background:var(--panel); border:1.5px solid var(--border); padding:26px;
+}
+.bk-summary h3{
+  font-family:var(--font-head); font-weight:700; font-size:1.05rem;
+  margin-bottom:18px; padding-bottom:14px; border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.bk-summary-row{
+  display:flex; justify-content:space-between; align-items:center;
+  padding:9px 0; font-size:0.9rem;
+}
+.bk-summary-row span:first-child{color:var(--text-dim); font-family:var(--font-mono); font-size:0.8rem;}
+.bk-summary-row span:last-child{font-family:var(--font-head); font-weight:600;}
+.bk-summary-total{
+  margin-top:14px; padding-top:16px; border-top:1px solid rgba(255,255,255,0.08);
+  display:flex; justify-content:space-between; align-items:center;
+}
+.bk-summary-total span:first-child{font-family:var(--font-head); font-weight:700;}
+.bk-summary-total span:last-child{
+  font-family:var(--font-display); font-size:1.5rem; color:var(--cyan);
+}
+.bk-tbk-note{
+  display:flex; align-items:center; gap:8px;
+  margin-top:20px; padding:12px 14px;
+  background:rgba(57,255,136,0.06); border:1px solid rgba(57,255,136,0.25);
+  font-family:var(--font-mono); font-size:0.72rem; color:var(--green);
+}
+
+@media (max-width:760px){
+  .bk-payment-grid{grid-template-columns:1fr; gap:26px;}
+}
+
+/* ---------- Navegación inferior del wizard ---------- */
+.bk-nav{
+  max-width:880px; margin:44px auto 0;
+  display:flex; justify-content:space-between; align-items:center;
+}
+.bk-nav .btn:disabled{opacity:0.35; cursor:not-allowed; pointer-events:none;}
+.bk-error-banner{
+  max-width:640px; margin:0 auto 24px; padding:14px 18px;
+  background:rgba(255,31,143,0.08); border:1px solid rgba(255,31,143,0.35);
+  color:var(--magenta); font-family:var(--font-mono); font-size:0.82rem;
+  text-align:center; display:none;
+}
+.bk-error-banner.show{display:block;}
+
+.bk-loading-overlay{
+  position:fixed; inset:0; z-index:500;
+  background:rgba(2,1,3,0.85); backdrop-filter:blur(4px);
+  display:none; align-items:center; justify-content:center; flex-direction:column; gap:16px;
+}
+.bk-loading-overlay.show{display:flex;}
+.bk-spinner{
+  width:44px; height:44px; border-radius:50%;
+  border:3px solid var(--border); border-top-color:var(--cyan);
+  animation:spin 0.8s linear infinite;
+}
+.bk-loading-overlay p{font-family:var(--font-mono); color:var(--text-dim); font-size:0.85rem;}
+
+/* ---------- Página de confirmación ---------- */
+.confirm-box{
+  max-width:520px; margin:140px auto 80px; text-align:center; padding:0 24px;
+}
+.confirm-icon{
+  width:80px; height:80px; margin:0 auto 26px;
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+}
+.confirm-icon.ok{background:rgba(57,255,136,0.12); border:2px solid var(--green); color:var(--green);}
+.confirm-icon.fail{background:rgba(255,31,143,0.12); border:2px solid var(--magenta); color:var(--magenta);}
+.confirm-icon svg{width:38px; height:38px;}
+.confirm-box h1{
+  font-family:var(--font-display); font-weight:700; font-size:1.7rem; margin-bottom:12px;
+}
+.confirm-box p{color:var(--text-dim); margin-bottom:8px;}
+.confirm-detail{
+  margin-top:28px; background:var(--panel); border:1px solid var(--border);
+  padding:22px; text-align:left; font-family:var(--font-mono); font-size:0.85rem;
+}
+.confirm-detail div{display:flex; justify-content:space-between; padding:6px 0;}
+.confirm-detail span:first-child{color:var(--text-dim);}

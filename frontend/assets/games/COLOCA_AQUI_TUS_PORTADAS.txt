@@ -1,0 +1,9 @@
+Coloca aquí las portadas de tus juegos con estos nombres exactos
+(los mismos que usa tu sitio principal):
+
+spatial-ops-cover.jpg
+zombies-cover.jpg
+mansion-cover.jpg
+party-cover.jpg
+kraken-cover.jpg
+squad-cover.jpg

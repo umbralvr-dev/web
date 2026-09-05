@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>UMBRAL VR — Arena de Realidad Virtual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="noise-layer"></div>
+
+<header>
+  <div class="container navwrap">
+    <a href="#inicio" class="logo">UMBRAL<span>VR</span></a>
+    <nav>
+      <ul>
+        <li><a href="#experiencias">Experiencias</a></li>
+        <li><a href="#juegos">Juegos</a></li>
+        <li><a href="#precios">Precios</a></li>
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#ubicacion">Ubicación</a></li>
+      </ul>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-socials">
+        <a href="https://instagram.com" target="_blank" rel="noopener" aria-label="Instagram" class="nav-social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        </a>
+        <a href="https://tiktok.com" target="_blank" rel="noopener" aria-label="TikTok" class="nav-social-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3a5 5 0 005 5"/></svg>
+        </a>
+      </div>
+      <a href="reserva.html" class="nav-cta">Reservar ahora</a>
+    </div>
+    <button class="burger" id="burgerBtn" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#experiencias">Experiencias</a>
+    <a href="#juegos">Juegos</a>
+    <a href="#precios">Precios</a>
+    <a href="#galeria">Galería</a>
+    <a href="#ubicacion">Ubicación</a>
+    <div class="mobile-socials">
+      <a href="https://www.instagram.com/umbralvr/" target="_blank" rel="noopener" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        Instagram
+      </a>
+      <a href="https://www.tiktok.com/@umbralvr" target="_blank" rel="noopener" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3a5 5 0 005 5"/></svg>
+        TikTok
+      </a>
+    </div>
+    <a href="reserva.html" class="btn btn-primary nav-cta">Reservar ahora</a>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-gridlines"></div>
+  <div class="hero-chrom"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="eyebrow">Sistema online · Puerto Montt, Chile</span>
+      <h1><span class="glitch">UMBRAL VR</span></h1>
+      <p class="brand-line">Cruza el <b class="cy">umbral</b>. Vive la <b class="mg">realidad</b>.</p>
+      <div class="hero-ctas">
+        <a href="reserva.html" class="btn btn-primary">Reservar mi sesión</a>
+        <a href="#experiencias" class="btn btn-ghost">Ver experiencias</a>
+      </div>
+
+      <div class="tech-strip">
+        <div class="tech-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="10" rx="3"/><circle cx="8" cy="12" r="1.6"/><circle cx="16" cy="12" r="1.6"/></svg>
+          <div><strong>Meta Quest 3</strong><span>Libertad total</span></div>
+        </div>
+        <div class="tech-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12h6l2-3 3 6 2-3h5"/></svg>
+          <div><strong>Libera Energia</strong><span>Muevete sin barreras</span></div>
+        </div>
+        <div class="tech-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z"/></svg>
+          <div><strong>Arena Free Movimiento</strong><span>Sin cables, sin límites</span></div>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat"><div class="num">6+</div><div class="label">Misiones VR</div></div>
+        <div class="stat"><div class="num">6vs6</div><div class="label">Multijugador</div></div>
+        <div class="stat"><div class="num">100m²</div><div class="label">Arena free-roam</div></div>
+        <div class="stat"><div class="num">4.9★</div><div class="label">Valoración clientes</div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section class="experiencias" id="experiencias">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// Qué encontrarás</span>
+      <h2>Experiencias diseñadas para moverte, no solo mirar</h2>
+      <p>Sin cables que te frenen. Cada sala está calibrada para juego libre, multijugador y sensación real de espacio.</p>
+    </div>
+    <div class="exp-grid reveal">
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="20" height="10" rx="3"/><circle cx="8" cy="12" r="1.6"/><circle cx="16" cy="12" r="1.6"/></svg>
+        </div>
+        <h3>Free-Roam Multijugador</h3>
+        <p>Hasta 8 personas dentro de la misma arena, sin cables, con seguimiento de cuerpo completo.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l3 6 6 1-4.5 4.4L17.5 20 12 17l-5.5 3 1-6.6L3 8l6-1z"/></svg>
+        </div>
+        <h3>Misiones de acción</h3>
+        <p>Zombies, disparos tácticos y escape rooms virtuales con dificultad progresiva.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 12a8 8 0 1116 0 8 8 0 01-16 0z"/><path d="M12 8v4l3 2"/></svg>
+        </div>
+        <h3>Sesiones por tiempo</h3>
+        <p>Bloques de 30, 45 o 60 minutos. Ideal para pasar de una misión a otra sin esperas.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 21a8 8 0 10-16 0"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <h3>Cumpleaños y grupos</h3>
+        <p>Paquetes para eventos, cumpleaños y actividades de equipo con anfitrión dedicado.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2L3 14h7l-1 8 11-13h-7l1-7z"/></svg>
+        </div>
+        <h3>Sin experiencia previa</h3>
+        <p>Nuestro equipo te prepara y acompaña dentro de la sala. Apto para primerizos.</p>
+      </div>
+      <div class="exp-card">
+        <div class="exp-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        </div>
+        <h3>Equipo de última generación</h3>
+        <p>Visores inalámbricos, sanitizados entre cada sesión, con audio espacial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="juegos" id="juegos">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// Biblioteca VR</span>
+      <h2>Elige tu próxima misión</h2>
+      <p>Explora nuestras experiencias. Pulsa una portada para ver el tráiler, conocer el juego y descubrir qué te espera dentro de la arena.</p>
+    </div>
+
+    <div class="games-grid reveal">
+      <article class="game-card" data-game="spatial">
+        <img class="game-cover" src="assets/games/spatial-ops-cover.jpg" alt="Spatial Ops" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">PVP · FREE ROAM</span>
+          <h3>Spatial Ops</h3>
+          <p>Enfréntate a tus rivales en intensas batallas PvP. Coordina a tu equipo y demuestra quién tiene lo necesario para alcanzar la victoria.</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+
+      <article class="game-card" data-game="zombies">
+        <img class="game-cover" src="assets/games/zombies-cover.jpg" alt="Misión Zombies" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">CO-OP · ACCIÓN</span>
+          <h3>Misión Zombies</h3>
+          <p>Forma tu escuadrón, sobrevive a las oleadas y completa la misión antes de quedar rodeado.</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+
+      <article class="game-card" data-game="insanity">
+        <img class="game-cover" src="assets/games/mansion-cover.jpg" alt="Insanity : The Haunting" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">CO-OP · Horror</span>
+          <h3>Insanity : The Haunting</h3>
+          <p>El asilo quedó consumido por la sangre y la oscuridad. Desde aquella noche, jamás se volvió a saber de nadie.</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+
+      <article class="game-card" data-game="party">
+        <img class="game-cover" src="assets/games/party-cover.jpg" alt="Party Playland" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">Multijugador</span>
+          <h3>Party Playland</h3>
+          <p>Disfruta de una colección de minijuegos multijugador diseñados para la máxima diversión.</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+
+      <article class="game-card" data-game="kraken">
+        <img class="game-cover" src="assets/games/kraken-cover.jpg" alt="Kraken Island" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">Multijugador</span>
+          <h3>Kraken Island </h3>
+          <p>¡Embárcate en un viaje épico en Kraken Island , un juego de disparos familiar, cooperativo y de libre juego !</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+
+      <article class="game-card" data-game="death">
+        <img class="game-cover" src="assets/games/squad-cover.jpg" alt="Death Squad" loading="lazy">
+        <div class="game-content">
+          <span class="game-tag">AVENTURA · CO-OP</span>
+          <h3>Death Squad</h3>
+          <p>¡Prepárate para la acción trepidante! En Death Squad, una misión desesperada se convierte en una emocionante carrera por la supervivencia.</p>
+          <span class="game-open">Ver experiencia</span>
+        </div>
+      </article>
+    </div>
+
+    <p class="gal-note" style="margin-top:24px;">
+      <strong style="color:var(--cyan);">/assets/</strong> · Coloca las portadas en <strong>/assets/games/</strong>
+      y las imágenes/videos de Spatial Ops en <strong>/assets/spatial-ops/</strong>.
+    </p>
+  </div>
+</section>
+
+<section class="spatial-section" id="spatial-ops">
+  <div class="container">
+    <div class="spatial-hero">
+      <div class="spatial-copy reveal">
+        <span class="section-eyebrow">// Experiencia destacada · PVP</span>
+        <h2>SPATIAL <span>OPS</span></h2>
+        <p>Una experiencia competitiva diseñada para enfrentarte cara a cara con tus amigos. Muévete libremente por el espacio, busca cobertura y coordina tu escuadrón en una batalla PVP de realidad virtual.</p>
+        <div class="spatial-meta">
+          <span>PVP MULTIJUGADOR</span>
+          <span>FREE ROAM</span>
+          <span>META QUEST 3</span>
+          <span>ACCIÓN</span>
+        </div>
+        <div class="hero-ctas" style="justify-content:flex-start;margin-top:28px;">
+          <button class="btn btn-primary" type="button" data-game="spatial">Ver tráiler</button>
+        </div>
+      </div>
+
+      <div class="spatial-feature-media reveal">
+        <span class="media-label">SPATIAL_OPS // FEATURE</span>
+        <img src="assets/spatial-ops/feature.jpg" alt="Spatial Ops en Umbral VR" loading="lazy">
+      </div>
+    </div>
+
+    <div class="section-head reveal" style="margin-bottom:32px;">
+      <span class="section-eyebrow">// Media</span>
+      <h2>Vívelo antes de entrar</h2>
+      <p>Galería dedicada para mostrar capturas, acción dentro de la arena y videos promocionales de Spatial Ops.</p>
+    </div>
+
+    <div class="spatial-gallery reveal">
+      <button class="spatial-thumb" type="button" data-media="image" data-src="assets/spatial-ops/gallery-01.jpg" aria-label="Ver imagen de Spatial Ops">
+        <img src="assets/spatial-ops/gallery-01.jpg" alt="Spatial Ops — imagen 1" loading="lazy">
+        <span>CAPTURA_01</span>
+      </button>
+      <button class="spatial-thumb" type="button" data-media="image" data-src="assets/spatial-ops/gallery-02.jpeg" aria-label="Ver imagen de Spatial Ops">
+        <img src="assets/spatial-ops/gallery-02.jpeg" alt="Spatial Ops — imagen 2" loading="lazy">
+        <span>CAPTURA_02</span>
+      </button>
+      <button class="spatial-thumb" type="button" data-media="image" data-src="assets/spatial-ops/gallery-03.jpg" aria-label="Ver imagen de Spatial Ops">
+        <img src="assets/spatial-ops/gallery-03.jpg" alt="Spatial Ops — imagen 3" loading="lazy">
+        <span>CAPTURA_03</span>
+      </button>
+      <button class="spatial-thumb" type="button" data-media="video" data-src="assets/spatial-ops/video-01.mp4" aria-label="Reproducir video de Spatial Ops">
+        <video src="assets/spatial-ops/video-01.mp4" muted playsinline preload="metadata"></video>
+        <span>VIDEO_01 ▶</span>
+      </button>
+      <button class="spatial-thumb" type="button" data-media="video" data-src="assets/spatial-ops/video-02.mp4" aria-label="Reproducir video de Spatial Ops">
+        <video src="assets/spatial-ops/video-02.mp4" muted playsinline preload="metadata"></video>
+        <span>VIDEO_02 ▶</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section class="precios" id="precios">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// Acceso a la arena</span>
+      <h2>Precios y paquetes</h2>
+      <p>Valores de referencia en pesos chilenos. Ajusta estos montos según tu tarifa real antes de publicar.</p>
+    </div>
+    <div class="precios-grid reveal">
+      <div class="price-card">
+        <div class="price-id">SALA_01</div>
+        <h3>Sesión Individual</h3>
+        <div class="price-amount">$8.000<sup>CLP</sup></div>
+        <div class="price-unit">por persona / 30 min</div>
+        <ul class="price-features">
+          <li>1 misión a elección</li>
+          <li>Inducción incluida</li>
+          <li>Hasta 2 jugadores en sala</li>
+        </ul>
+        <a href="reserva.html" class="btn btn-ghost">Reservar</a>
+      </div>
+      <div class="price-card featured">
+        <div class="price-id">SALA_02</div>
+        <h3>Pack Duo/Squad</h3>
+        <div class="price-amount">$14.000<sup>CLP</sup></div>
+        <div class="price-unit">por persona / 45 min</div>
+        <ul class="price-features">
+          <li>2 misiones a elección</li>
+          <li>Hasta 6 jugadores simultáneos</li>
+          <li>Ranking de la partida</li>
+        </ul>
+        <a href="reserva.html" class="btn btn-primary">Reservar</a>
+      </div>
+      <div class="price-card">
+        <div class="price-id">SALA_03</div>
+        <h3>Pack Fiesta</h3>
+        <div class="price-amount">$18.000<sup>CLP</sup></div>
+        <div class="price-unit">por persona / 60 min</div>
+        <ul class="price-features">
+          <li>Grupos desde 6 personas</li>
+          <li>Anfitrión dedicado</li>
+          <li>Zona de espera decorada</li>
+        </ul>
+        <a href="reserva.html" class="btn btn-ghost">Reservar</a>
+      </div>
+      <div class="price-card">
+        <div class="price-id">SALA_04</div>
+        <h3>Membresía Umbral VR</h3>
+        <div class="price-amount">$45.000<sup>CLP</sup></div>
+        <div class="price-unit">mensual</div>
+        <ul class="price-features">
+          <li>4 sesiones incluidas al mes</li>
+          <li>20% dcto. en sesiones extra</li>
+          <li>Acceso prioritario fines de semana</li>
+        </ul>
+        <a href="reserva.html" class="btn btn-ghost">Reservar</a>
+      </div>
+    </div>
+    <p class="price-note">* Precios de referencia. Reemplázalos por tus tarifas reales antes de publicar el sitio.</p>
+  </div>
+</section>
+
+<section class="galeria" id="galeria">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="section-eyebrow">// La arena por dentro</span>
+      <h2>Galería</h2>
+      <p>Reemplaza estos bloques por fotos y videos reales de tu arena, jugadores en acción y eventos.</p>
+    </div>
+    <div class="gal-grid reveal">
+      <div class="gal-item"><div class="bg g1"></div><span>Arena principal — free roam</span></div>
+      <div class="gal-item"><div class="bg g2"></div><span>Sala de misiones</span></div>
+      <div class="gal-item"><div class="bg g3"></div><span>Multijugador en vivo</span></div>
+      <div class="gal-item"><div class="bg g4"></div><span>Fiestas y eventos</span></div>
+      <div class="gal-item"><div class="bg g5"></div><span>Equipo y visores</span></div>
+    </div>
+    <p class="gal-note">📸 Tip: sube fotos reales tomadas dentro de la arena — son las que más convierten reservas.</p>
+    <div class="social-row">
+      <a href="https://www.instagram.com/umbralvr/" target="_blank" rel="noopener" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.2" cy="6.8" r="1"/></svg>
+        @umbralvr en Instagram
+      </a>
+      <a href="https://www.tiktok.com/@umbralvr" target="_blank" rel="noopener" class="social-pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M14 3v10.5a3.5 3.5 0 11-3-3.46"/><path d="M14 3a5 5 0 005 5"/></svg>
+        @umbralvr en TikTok
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="ubicacion" id="ubicacion">
+  <div class="container">
+    <div class="reveal">
+      <span class="section-eyebrow">// Encuéntranos</span>
+      <h2 style="font-family:var(--font-display); font-size:clamp(2rem,4vw,3rem); font-weight:700;">Ubicación y contacto</h2>
+      <p style="color:var(--text-dim); margin-top:16px; max-width:480px;">Estamos en Puerto Montt. Escríbenos o pasa directamente a reservar tu turno.</p>
+      <div class="info-list">
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1116 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div><h4>Dirección</h4><p>Puerto Montt, Región de Los Lagos, Chile</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.5 2.1L7.9 9.6a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z"/></svg>
+          </div>
+          <div><h4>Teléfono / WhatsApp</h4><p>+56 9 1234 5678</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+          </div>
+          <div><h4>Correo</h4><p>contacto@umbralvr.cl</p></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+          </div>
+          <div><h4>Horario</h4><p>Mar–Dom · 11:00–21:00 · Lunes cerrado</p></div>
+        </div>
+      </div>
+    </div>
+    <div class="map-frame reveal">
+     
+        
+        <div class="map-container">
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2990.8681372219316!2d-72.9130668882965!3d-41.442082771173276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x96183b2fc1e96383%3A0x4aa5d7d2ec5bf733!2sOutlet%20Paseo%20Alerce!5e0!3m2!1ses!2scl!4v1788535470525!5m2!1ses!2scl" 
+            style="border:0; width:100%; height:100%;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="strict-origin-when-cross-origin">
+          </iframe>
+        </div>
+      
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <span class="section-eyebrow">// Última llamada</span>
+    <h2>¿Listo para entrar a otra realidad?</h2>
+    <p>Cupos limitados por sala. Reserva tu horario y trae a tu equipo.</p>
+    <a href="reserva.html" class="btn btn-primary">Reservar ahora</a>
+  </div>
+</section>
+
+
+<div class="game-modal" id="gameModal" aria-hidden="true">
+  <div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <button class="modal-close" id="modalClose" type="button" aria-label="Cerrar">×</button>
+    <div class="modal-media" id="modalMedia"></div>
+    <div class="modal-body">
+      <span class="section-eyebrow" id="modalTag">// Experiencia VR</span>
+      <h3 id="modalTitle">Experiencia</h3>
+      <p id="modalDescription"></p>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <a href="#inicio" class="logo">UMBRAL<span>VR</span></a>
+      <div class="footer-links">
+        <a href="#experiencias">Experiencias</a>
+        <a href="#precios">Precios</a>
+        <a href="#galeria">Galería</a>
+        <a href="#ubicacion">Ubicación</a>
+      </div>
+    </div>
+    <p class="footer-copy">© 2026 UMBRAL VR · Arena de Realidad Virtual · Puerto Montt, Chile</p>
+  </div>
+</footer>
+
+<script>
+  const burger = document.getElementById('burgerBtn');
+  const menu = document.getElementById('mobileMenu');
+
+  burger.addEventListener('click', () => {
+    const isOpen = menu.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+
+  menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    menu.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* ---------- GAME MODALS ---------- */
+  const gameData = {
+    spatial: {
+      title: 'Spatial Ops',
+      tag: '// PVP · FREE ROAM',
+      description: 'Enfréntate a tus amigos en una experiencia PVP de realidad virtual. Muévete libremente, utiliza el entorno como cobertura y coordina tu equipo para dominar la partida.',
+      video: 'assets/spatial-ops/trailer.mp4'
+    },
+    zombies: {
+      title: 'Misión Z II',
+      tag: '// CO-OP · ACCIÓN',
+      description: 'Una misión cooperativa donde cada jugador tiene un papel clave. Sobrevive a las oleadas, protege a tu equipo y completa el objetivo antes de que sea demasiado tarde.',
+      type: 'youtube',
+      video: 'FhoVlrHLfsA'
+    },
+    insanity: {
+      title: 'Insanity : The Haunting',
+      tag: '// CO-OP · HORROR',
+      description: 'El Dr. Nikolov perdió a su esposa en un terrible accidente. Su única hija, Maureen, presenció la tragedia y nunca volvió a ser la misma. Nikolov abandonó la medicina y se dedicó a algo mucho más siniestro. Una noche fatídica, realizó un ritual para invocar a una entidad poderosa, con la esperanza de que salvara a Maureen. Pero algo salió mal...',
+      type: 'youtube',
+      video: 'FjMr5ZrPXFk'
+    },
+    party: {
+      title: 'Party Playland',
+      tag: '// MULTIJUGADOR · DIVERSION',
+      description: 'En esta experiencia familiar de juego de fiesta , te transportarás a un mundo colorido donde tú y tus amigos competirán para convertirse en el último y mejor Campeón de la Fiesta. ¡Descubre un mundo de juegos de realidad virtual con libertad como nunca antes!.',
+      type: 'youtube',
+      video: 'G7fG7VaoOMc'
+    },
+    kraken: {
+      title: 'Kraken Island',
+      tag: '// MULTIJUGADOR · AVENTURA',
+      description: 'Bienvenido a Kraken Island: Captain Curse . Descubre o redescubre tu alma infantil en esta aventura pirata de realidad virtual y emprende la conquista de los tesoros del pasado.',
+      type: 'youtube',
+      video: 'sbxA_AG01ns'
+    },
+    death: {
+      title: 'Death Squad',
+      tag: '// MULTIJUGADOR · ACCIÓN',
+      description: 'En Death Squad, te unirás a un equipo de operaciones especiales en una carrera contrarreloj para frustrar los planes de una organización terrorista internacional. Juega en modo cooperativo de hasta 4 jugadores y enfréntate a hordas de enemigos en entornos dinámicos y desafiantes. Utiliza un arsenal variado de armas, domina el sistema de cobertura y coordina con tus compañeros para eliminar a los objetivos prioritarios y desactivar las amenazas antes de que sea tarde.',
+      type: 'youtube',
+      video: '2AVP0BNz_Yc'
+    }
+  };
+
+  const modal = document.getElementById('gameModal');
+  const modalMedia = document.getElementById('modalMedia');
+  const modalTitle = document.getElementById('modalTitle');
+  const modalTag = document.getElementById('modalTag');
+  const modalDescription = document.getElementById('modalDescription');
+  const modalClose = document.getElementById('modalClose');
+
+function openGameModal(key) {
+  const game = gameData[key];
+  if (!game) return;
+
+  modalTitle.textContent = game.title;
+  modalTag.textContent = game.tag;
+  modalDescription.textContent = game.description;
+
+  // Limpiar reproductor anterior
+  modalMedia.innerHTML = '';
+
+  if (game.type === 'youtube') {
+
+    const iframe = document.createElement('iframe');
+
+    iframe.src =
+      'https://www.youtube-nocookie.com/embed/' +
+      game.video +
+      '?autoplay=1&rel=0&modestbranding=1';
+
+    iframe.title = game.title;
+    iframe.allow =
+      'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+
+    iframe.allowFullscreen = true;
+
+    modalMedia.appendChild(iframe);
+
+  } else {
+
+    const video = document.createElement('video');
+
+    video.controls = true;
+    video.autoplay = true;
+    video.playsInline = true;
+    video.preload = 'metadata';
+
+    const source = document.createElement('source');
+    source.src = game.video;
+    source.type = 'video/mp4';
+
+    video.appendChild(source);
+    modalMedia.appendChild(video);
+  }
+
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden', 'false');
+  document.body.classList.add('modal-open');
+
+  modalClose.focus();
+}
+  function closeGameModal() {
+    const video = modalMedia.querySelector('video');
+    if (video) video.pause();
+    modalMedia.innerHTML = '';
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('modal-open');
+  }
+
+  document.querySelectorAll('[data-game]').forEach(el => {
+    el.addEventListener('click', () => openGameModal(el.dataset.game));
+  });
+
+  document.querySelectorAll('.spatial-thumb').forEach(el => {
+    el.addEventListener('click', () => {
+      const type = el.dataset.media;
+      const src = el.dataset.src;
+      modalTitle.textContent = 'Spatial Ops';
+      modalTag.textContent = type === 'video' ? '// SPATIAL OPS · VIDEO' : '// SPATIAL OPS · GALERÍA';
+      modalDescription.textContent = 'Galería oficial de la experiencia PVP Spatial Ops en Umbral VR.';
+      modalMedia.innerHTML = type === 'video'
+        ? `<video controls autoplay playsinline><source src="${src}" type="video/mp4"></video>`
+        : `<img src="${src}" alt="Spatial Ops" style="width:100%;height:100%;object-fit:contain;">`;
+      modal.classList.add('open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('modal-open');
+      modalClose.focus();
+    });
+  });
+
+  modalClose.addEventListener('click', closeGameModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeGameModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.classList.contains('open')) closeGameModal();
+  });
+</script>
+
+</body>
+</html>

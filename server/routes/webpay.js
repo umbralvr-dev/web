@@ -58,18 +58,31 @@ router.post(
   }
 );
 
-// El formulario de pago de Transbank redirige de vuelta aquí (POST) con
-// el token_ws en el body. Confirmamos ("commit") la transacción,
-// validamos el monto contra nuestra base de datos y solo ahí marcamos
-// la reserva como pagada. Nunca confiamos en datos que vengan del navegador.
-router.post('/return', async (req, res) => {
-  const token = req.body.token_ws;
+// Transbank redirige de vuelta a esta URL de dos formas distintas según
+// el caso — por eso registramos el mismo manejador para GET y POST:
+//
+//   • Pago intentado (aprobado o rechazado) → POST con "token_ws" en el body.
+//   • Usuario cancela ("Anular compra") o la transacción expira dentro
+//     de Webpay → GET con "TBK_TOKEN" como query param en la URL.
+//
+// Confirmamos ("commit") la transacción, validamos el monto contra
+// nuestra base de datos y solo ahí marcamos la reserva como pagada.
+// Nunca confiamos en datos que vengan del navegador.
+async function handleWebpayReturn(req, res) {
+  const token = req.body.token_ws || req.query.token_ws;
+  const abortedToken = req.body.TBK_TOKEN || req.query.TBK_TOKEN;
 
-  // Transbank también puede notificar el "abandono" de pago así:
-  if (!token && req.body.TBK_TOKEN) {
-    return res.redirect(
-      `${cfg.FRONTEND_URL}/confirmacion.html?status=cancelled`
-    );
+  if (!token && abortedToken) {
+    const booking = db.prepare('SELECT * FROM bookings WHERE tbk_token = ?').get(abortedToken);
+
+    if (booking && booking.status === 'pending_payment') {
+      db.prepare(
+        `UPDATE bookings SET status = 'cancelled', updated_at = datetime('now') WHERE id = ?`
+      ).run(booking.id);
+      logEvent(booking.id, 'cancelled_by_user', { TBK_TOKEN: abortedToken });
+    }
+
+    return res.redirect(`${cfg.FRONTEND_URL}/confirmacion.html?status=cancelled`);
   }
 
   if (!token) {
@@ -121,6 +134,9 @@ router.post('/return', async (req, res) => {
     ).run(booking.id);
     return res.redirect(`${cfg.FRONTEND_URL}/confirmacion.html?status=error&booking=${booking.id}`);
   }
-});
+}
+
+router.post('/return', handleWebpayReturn);
+router.get('/return', handleWebpayReturn);
 
 module.exports = router;

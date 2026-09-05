@@ -299,23 +299,6 @@ header {
     color: var(--cyan);
 }
 
-/* Logo como imagen (en vez de texto) — la regla que faltaba.
-   Sin esto, la imagen se muestra a su tamaño natural (gigante). */
-.logo-img {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img::before {
-    display: none;
-}
-
-.logo-img img {
-    height: 28px;
-    width: auto;
-    display: block;
-}
-
 nav ul {
     display: flex;
     gap: 34px;
@@ -1692,6 +1675,29 @@ body.modal-open {
 @media (max-width:600px) {
     section {
         padding: 80px 0;
+    }
+
+    .hero-stats {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px 0;
+        justify-items: center;
+    }
+
+    .stat {
+        border-left: none;
+        padding: 0 16px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .stat:nth-child(odd) {
+        border-right: 1px solid var(--border);
+    }
+
+    .stat:nth-child(n+3) {
+        padding-top: 22px;
+        border-top: 1px solid var(--border);
     }
 
     .precios-grid {

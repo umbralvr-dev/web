@@ -6,6 +6,7 @@ const rateLimit = require('express-rate-limit');
 const cfg = require('./config');
 const db = require('./db');
 const seed = require('./db/seed');
+const { releaseExpiredBookings } = require('./utils/cleanup');
 
 // Carga la biblioteca de juegos si la tabla está vacía (primer arranque).
 const gameCount = db.prepare('SELECT COUNT(*) AS n FROM games').get().n;
@@ -62,3 +63,8 @@ app.listen(cfg.PORT, () => {
   console.log(`Umbral VR booking API escuchando en http://localhost:${cfg.PORT}`);
   console.log(`Modo Transbank: ${cfg.TBK_ENV}`);
 });
+
+// Limpiador proactivo: libera reservas "pending_payment" vencidas cada
+// 2 minutos, sin depender de que alguien consulte esa fecha específica.
+// Así un cupo no queda "fantasma" tomado si nadie vuelve a mirarlo.
+setInterval(releaseExpiredBookings, 2 * 60 * 1000);

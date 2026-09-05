@@ -5,6 +5,7 @@ const { body, validationResult } = require('express-validator');
 const db = require('../db');
 const cfg = require('../config');
 const { generateDaySlots, isDateValid } = require('../utils/slots');
+const { releaseExpiredBookings } = require('../utils/cleanup');
 
 const router = express.Router();
 
@@ -35,11 +36,7 @@ router.post('/', validate, (req, res, next) => {
   if (!game) return res.status(404).json({ error: 'Juego no encontrado' });
 
   // Libera reservas pendientes vencidas antes de intentar tomar el slot.
-  db.prepare(
-    `UPDATE bookings SET status = 'expired', updated_at = datetime('now')
-     WHERE status = 'pending_payment'
-       AND datetime(created_at, '+' || ? || ' minutes') < datetime('now')`
-  ).run(cfg.PENDING_HOLD_MINUTES);
+  releaseExpiredBookings();
 
   const id = uuidv4();
   const priceClp = players * cfg.PRICE_PER_PLAYER_CLP;

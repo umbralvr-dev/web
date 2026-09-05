@@ -2,6 +2,7 @@ const express = require('express');
 const db = require('../db');
 const cfg = require('../config');
 const { generateDaySlots, isDateValid } = require('../utils/slots');
+const { releaseExpiredBookings } = require('../utils/cleanup');
 
 const router = express.Router();
 
@@ -16,11 +17,7 @@ router.get('/', (req, res) => {
 
   // Libera automáticamente reservas "pending_payment" que ya expiraron
   // (el usuario abrió el pago pero nunca lo terminó).
-  db.prepare(
-    `UPDATE bookings SET status = 'expired', updated_at = datetime('now')
-     WHERE status = 'pending_payment'
-       AND datetime(created_at, '+' || ? || ' minutes') < datetime('now')`
-  ).run(cfg.PENDING_HOLD_MINUTES);
+  releaseExpiredBookings();
 
   const taken = new Set(
     db

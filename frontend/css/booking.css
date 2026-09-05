@@ -20,6 +20,10 @@
 .booking-topbar .container{
   display:flex; align-items:center; justify-content:space-between;
 }
+.booking-topbar .logo-img img{
+  height:24px;
+  width:auto;
+}
 .booking-back{
   display:flex; align-items:center; gap:8px;
   font-family:var(--font-head); font-weight:600; font-size:0.95rem;
@@ -178,13 +182,17 @@
   padding:14px 8px; text-align:center; cursor:pointer;
   border:1.5px solid var(--border); background:var(--panel);
   font-family:var(--font-mono); font-weight:700; font-size:0.92rem;
-  color:var(--text); transition:all 0.2s;
+  color:var(--text);
+  transition:background-color 0.15s, border-color 0.15s, color 0.15s, box-shadow 0.15s;
   -webkit-tap-highlight-color:transparent;
   user-select:none; -webkit-user-select:none;
+  transform:translateZ(0);
+  -webkit-backface-visibility:hidden;
+  will-change:background-color, color;
 }
 .bk-slot:hover:not(.taken){border-color:var(--cyan); color:var(--cyan);}
 .bk-slot.selected{
-  background:var(--cyan); border-color:var(--cyan); color:var(--bg);
+  background:var(--cyan); border-color:var(--cyan); color:#07060d !important;
   box-shadow:0 0 16px rgba(0,229,255,0.5);
 }
 .bk-slot.taken{

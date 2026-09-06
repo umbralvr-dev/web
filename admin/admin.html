@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservas — Panel UMBRAL VR</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;700;900&family=Rajdhani:wght@500;600;700&family=Space+Grotesk:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/booking.css">
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<div class="noise-layer"></div>
+
+<header class="booking-topbar">
+  <div class="container">
+    <a href="index.html" class="logo logo-img"><img src="assets/umbral-vr-logo-nav.png" alt="UMBRAL VR"></a>
+    <div class="admin-topbar-right">
+      <span class="admin-user-chip" id="adminUserChip">—</span>
+      <button type="button" class="btn btn-ghost admin-logout-btn" id="logoutBtn">Cerrar sesión</button>
+    </div>
+  </div>
+</header>
+
+<main class="admin-page">
+  <div class="container">
+
+    <div class="admin-header-row">
+      <div>
+        <span class="section-eyebrow">// Panel de administración</span>
+        <h1 class="admin-title">Reservas</h1>
+      </div>
+      <button type="button" class="btn btn-primary" id="newBookingBtn">+ Nueva reserva</button>
+    </div>
+
+    <div class="admin-filters">
+      <input type="text" id="filterSearch" placeholder="Buscar por nombre, correo o teléfono…" class="admin-input">
+      <input type="date" id="filterFrom" class="admin-input" title="Desde">
+      <input type="date" id="filterTo" class="admin-input" title="Hasta">
+      <select id="filterStatus" class="admin-input">
+        <option value="">Todos los estados</option>
+        <option value="paid">Pagada</option>
+        <option value="pending_payment">Pendiente de pago</option>
+        <option value="failed">Pago fallido</option>
+        <option value="cancelled">Cancelada por cliente</option>
+        <option value="cancelled_by_admin">Cancelada por admin</option>
+        <option value="expired">Expirada</option>
+      </select>
+      <button type="button" class="btn btn-ghost" id="clearFiltersBtn">Limpiar</button>
+    </div>
+
+    <div class="bk-error-banner" id="adminError"></div>
+
+    <div class="admin-table-wrap">
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Código</th>
+            <th>Cliente</th>
+            <th>Juego</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Jug.</th>
+            <th>Total</th>
+            <th>Estado</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody id="bookingsTbody">
+          <tr><td colspan="9" class="admin-table-empty">Cargando…</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</main>
+
+<!-- Modal: crear / editar reserva -->
+<div class="admin-modal-overlay" id="bookingModalOverlay">
+  <div class="admin-modal">
+    <div class="admin-modal-head">
+      <h2 id="modalTitle">Nueva reserva</h2>
+      <button type="button" class="admin-modal-close" id="modalCloseBtn" aria-label="Cerrar">✕</button>
+    </div>
+
+    <form id="bookingForm" novalidate>
+      <input type="hidden" id="fBookingId">
+
+      <div class="bk-form-group">
+        <label for="fGame">Juego</label>
+        <select id="fGame" class="admin-input"></select>
+      </div>
+
+      <div class="admin-form-row">
+        <div class="bk-form-group">
+          <label for="fDate">Fecha</label>
+          <input type="date" id="fDate" class="admin-input">
+        </div>
+        <div class="bk-form-group">
+          <label for="fTime">Hora</label>
+          <select id="fTime" class="admin-input"></select>
+        </div>
+      </div>
+
+      <div class="admin-form-row">
+        <div class="bk-form-group">
+          <label for="fPlayers">Jugadores</label>
+          <input type="number" id="fPlayers" class="admin-input" min="1" max="6" value="1">
+        </div>
+        <div class="bk-form-group">
+          <label for="fStatus">Estado</label>
+          <select id="fStatus" class="admin-input">
+            <option value="paid">Pagada</option>
+            <option value="pending_payment">Pendiente de pago</option>
+            <option value="failed">Pago fallido</option>
+            <option value="cancelled">Cancelada por cliente</option>
+            <option value="cancelled_by_admin">Cancelada por admin</option>
+            <option value="expired">Expirada</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="bk-form-group">
+        <label for="fFullName">Nombre completo</label>
+        <input type="text" id="fFullName" class="admin-input">
+      </div>
+      <div class="admin-form-row">
+        <div class="bk-form-group">
+          <label for="fEmail">Correo</label>
+          <input type="email" id="fEmail" class="admin-input">
+        </div>
+        <div class="bk-form-group">
+          <label for="fPhone">Teléfono</label>
+          <input type="tel" id="fPhone" class="admin-input">
+        </div>
+      </div>
+
+      <div class="bk-error-banner" id="modalError"></div>
+
+      <div class="admin-modal-actions">
+        <button type="button" class="btn btn-ghost" id="modalCancelBtn">Cancelar</button>
+        <button type="submit" class="btn btn-primary" id="modalSaveBtn">Guardar</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<!-- Modal: confirmar cancelación -->
+<div class="admin-modal-overlay" id="confirmModalOverlay">
+  <div class="admin-modal admin-modal-small">
+    <h2>¿Cancelar esta reserva?</h2>
+    <p class="admin-confirm-text">El horario quedará liberado de inmediato para que otro cliente pueda tomarlo. Esta acción queda registrada.</p>
+    <div class="admin-modal-actions">
+      <button type="button" class="btn btn-ghost" id="confirmNoBtn">No, volver</button>
+      <button type="button" class="btn btn-primary admin-danger-btn" id="confirmYesBtn">Sí, cancelar reserva</button>
+    </div>
+  </div>
+</div>
+
+<div class="bk-loading-overlay" id="loadingOverlay">
+  <div class="bk-spinner"></div>
+  <p>Cargando…</p>
+</div>
+
+<script>
+  // Pon aquí la URL real de tu backend (el proyecto server/ en Railway).
+  window.UMBRAL_API_BASE = 'https://web-production-6f38d.up.railway.app/api';
+</script>
+<script src="js/admin.js"></script>
+</body>
+</html>

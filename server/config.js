@@ -41,5 +41,10 @@ module.exports = {
   FROM_NAME: process.env.FROM_NAME || 'Umbral VR',
 
   BUSINESS_NAME: 'Umbral VR',
-  BUSINESS_ADDRESS: 'Puerto Montt, Región de Los Lagos, Chile'
+  BUSINESS_ADDRESS: 'Puerto Montt, Región de Los Lagos, Chile',
+
+  // ---- Panel de administración ----
+  NODE_ENV: process.env.NODE_ENV || 'development',
+  ADMIN_COOKIE_NAME: 'umbral_admin_session',
+  ADMIN_SESSION_HOURS: Number(process.env.ADMIN_SESSION_HOURS || 8)
 };

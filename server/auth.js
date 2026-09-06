@@ -15,8 +15,8 @@ const crypto = require('crypto');
 const bcrypt = require('bcryptjs');
 const { v4: uuidv4 } = require('uuid');
 
-const db = require('../db');
-const cfg = require('../config');
+const db = require('./db');
+const cfg = require('./config');
 
 const SESSION_DURATION_MS = cfg.ADMIN_SESSION_HOURS * 60 * 60 * 1000;
 const BCRYPT_ROUNDS = 12;
